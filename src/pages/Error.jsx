@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-const Error = ({modifierPageActive}) => {
+const ErrorComponent = ({modifierPageActive}) => {
 
     useEffect(()=>{
         modifierPageActive(p=>null)
@@ -14,4 +14,4 @@ const Error = ({modifierPageActive}) => {
     )
 }
 
-export default Error
+export default ErrorComponent
