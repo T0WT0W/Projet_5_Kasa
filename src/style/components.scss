@@ -9,7 +9,6 @@
 	margin-bottom: 60px;
 	margin-top: 60px;
 	border-radius: 25px;
-	background: #ff6060;
 	background-size: cover;
 	background-position: center;
 
@@ -161,6 +160,7 @@
 	border-radius: 10px;
 	color: white;
 	font-weight: bold;
+	font-size: 14px;
 
 	&s__container {
 		margin: 10px 0;
@@ -171,13 +171,19 @@
 
 .houseTitle {
 	width: 100%;
+	color: #ff6060;
 	display: flex;
 	justify-content: space-between;
-	gap: 30px;
 	margin: 20px 0 0 0;
 
 	& h1 {
 		margin: 0;
+		font-size: 36px;
+	}
+
+	& h2 {
+		color: black;
+		font-size: 18px;
 	}
 
 	&__right {
@@ -212,6 +218,7 @@
 .rating {
 	display: flex;
 	gap: 5px;
+	margin-top: 25px;
 
 	& img {
 		width: 25px;

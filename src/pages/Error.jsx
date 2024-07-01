@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 
-const ErrorComponent = ({modifierPageActive}) => {
+const ErrorComponent = ({ modifierPageActive }) => {
 
-    useEffect(()=>{
-        modifierPageActive(p=>null)
+    useEffect(() => {
+        modifierPageActive(p => null)
     })
 
     return (
