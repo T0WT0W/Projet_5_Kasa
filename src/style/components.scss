@@ -1,6 +1,6 @@
 .top {
 	padding: 0 100px 60px 100px;
-	min-height: 80vh;
+	min-height: 60vh;
 }
 
 .headband {
@@ -9,6 +9,7 @@
 	margin-bottom: 60px;
 	margin-top: 60px;
 	border-radius: 25px;
+	background: $pink;
 	background-size: cover;
 	background-position: center;
 
@@ -27,7 +28,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba(0, 0, 0, 0.3);
 		z-index: 1;
 	}
 
@@ -44,7 +45,7 @@
 .card {
 	width: 340px;
 	height: 340px;
-	background-color: #ff6060;
+	background-color: $pink;
 	box-shadow: 0 2px 25px 15px rgba(0, 0, 0, 0.05);
 	border-radius: 10px;
 	padding: 25px 25px 30px 25px;
@@ -92,19 +93,29 @@
 }
 
 .error {
-	color: #ff6060;
+	color: $pink;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
+	gap: 50px;
+	height: 100%;
 
-.error h1 {
-	font-size: 288px;
-	font-weight: 700;
-}
+	a {
+		color: black;
 
-.error h2 {
-	font-size: 36px;
+		@media (max-width: 1px) {}
+	}
+
+	& h1 {
+		font-size: 250px;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	& h2 {
+		font-size: 36px;
+		margin: 0;
+	}
 }
 
 .loader {
@@ -135,6 +146,16 @@
 		top: 0;
 		left: 0;
 		z-index: 1;
+
+		&-number {
+			z-index: 2;
+			color: white;
+			font-weight: bold;
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
 	}
 
 	&__commands-left,
@@ -154,13 +175,13 @@
 }
 
 .tag {
+	@include pinkBackground;
+
 	padding: 7px 20px;
-	background-color: #ff6060;
 	display: inline-block;
 	border-radius: 10px;
 	color: white;
 	font-weight: bold;
-	font-size: 14px;
 
 	&s__container {
 		margin: 10px 0;
@@ -169,27 +190,35 @@
 	}
 }
 
-.houseTitle {
-	width: 100%;
-	color: #ff6060;
-	display: flex;
-	justify-content: space-between;
-	margin: 20px 0 0 0;
-
-	& h1 {
-		margin: 0;
-		font-size: 36px;
-	}
-
-	& h2 {
-		color: black;
-		font-size: 18px;
-	}
-
-	&__right {
+.house {
+	&Title {
+		width: 100%;
 		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
+		justify-content: space-between;
+		gap: 30px;
+		margin: 20px 0 0 0;
+
+		& h1 {
+			margin: 0;
+			color: $pink;
+		}
+
+		&__right {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+		}
+	}
+
+	&__collapsibles {
+		display: flex;
+		width: 100%;
+		gap: 30px;
+		margin-top: 50px;
+
+		& .collapsible {
+			width: calc(50% - 15px);
+		}
 	}
 }
 
@@ -203,13 +232,14 @@
 
 	&__name {
 		font-weight: bold;
+		color: $pink;
 	}
 
 	&__avatar {
 		width: 60px;
 		height: 60px;
 		border-radius: 30px;
-		background-color: #ff6060;
+		background-color: $pink;
 		background-size: cover;
 		background-position: center;
 	}
@@ -217,11 +247,69 @@
 
 .rating {
 	display: flex;
-	gap: 5px;
-	margin-top: 25px;
+	gap: 7px;
+	margin-top: 15px;
 
 	& img {
-		width: 25px;
-		height: 25px;
+		width: 20px;
+		height: 20px;
+
+		&.grey {
+			opacity: 0.5;
+		}
+	}
+}
+
+.collapsible {
+	&__container-flex {
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+
+		& .collapsible {
+			margin: 0 75px;
+		}
+	}
+
+	&__header {
+		@include pinkBackground;
+
+		padding: 15px 25px;
+		font-weight: 900;
+		color: white;
+		border-radius: 7px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		& .fa-chevron-down {
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		&.active .fa-chevron-down {
+			transform: rotate(180deg);
+		}
+	}
+
+	&__content {
+		height: 0;
+		padding: 0 10px;
+		opacity: 0;
+		transition: 0.3s;
+
+		&.active {
+			padding: 15px 10px;
+			height: unset;
+			opacity: 1;
+		}
+
+		& ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			list-style-position: outside;
+		}
 	}
 }

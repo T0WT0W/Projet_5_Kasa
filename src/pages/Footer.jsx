@@ -5,8 +5,8 @@ import rights from "../assets/Rights.png"
 const Footer = () => {
     return (
         <footer className="footer">
-            <img alt="Lorem ipsum" src={logo} />
-            <img alt="Lorem ipsum" src={rights} />
+            <img alt="" src={logo} />
+            <img alt="" src={rights} />
         </footer>
     )
 }

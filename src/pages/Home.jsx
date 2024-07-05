@@ -10,8 +10,8 @@ const Home = ({ modifierPageActive, logements }) => {
 
     return (<>
         <div className="headband" style={{
-                backgroundImage: `url(${headband})`
-            }}>
+            backgroundImage: `url(${headband})`
+        }}>
             <h1 className="headband__title" >Chez vous, partout et ailleurs</h1>
         </div>
 
